@@ -22,8 +22,6 @@ jobs:
           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         with:
-          ghkey: ${{ secrets.BOT_TOKEN }}
-          enviroment: 'dev'
           tag: 'marek-testing'
           action: CommitPushPR
           basePullRequest: main

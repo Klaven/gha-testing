@@ -24,7 +24,7 @@ jobs:
         with:
           tag: 'marek-testing'
           action: CommitPushPR
-          basePullRequest: main
-          targetPullRequest: test
-          pullRequestMessage: "this is a test"
-          pullRequestTitle: ${{ github.event.pull_request.title }}
+          base-pull-request: main
+          target-pull-request: test
+          pull-request-message: "this is a test"
+          pull-request-title: ${{ github.event.pull_request.title }}

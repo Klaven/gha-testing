@@ -1,0 +1,32 @@
+on: 
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: testing the action
+    steps:
+      - name: Checkout code
+        id: checkout
+        uses: Klaven/git-gha@main
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        with:
+          action: Checkout
+      - name: Make PR
+        id: pr
+        uses: Klaven/git-gha@main
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        with:
+          ghkey: ${{ secrets.BOT_TOKEN }}
+          enviroment: 'dev'
+          tag: 'marek-testing'
+          action: CommitPushPR
+          basePullRequest: main
+          targetPullRequest: test
+          pullRequestMessage: "this is a test"
+          pullRequestTitle: ${{ github.event.pull_request.title }}

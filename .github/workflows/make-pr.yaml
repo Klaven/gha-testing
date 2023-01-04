@@ -23,7 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         with:
           tag: 'marek-testing'
-          action: CommitPushPR
+          action: PR
           base-pull-request: main
           target-pull-request: test
           pull-request-message: "this is a test"
